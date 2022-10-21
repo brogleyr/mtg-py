@@ -27,6 +27,7 @@ class Game:
                     player.deck = CommanderDeck(player.deck)
                 else:
                     print('No game type selected')
+                    return False
             except Exception as e:
                 print(f'{player}\'s {e}')
                 return False

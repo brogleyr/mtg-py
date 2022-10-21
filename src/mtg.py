@@ -16,18 +16,21 @@ class Game:
 
         self.game_type = game_type
     
-    def start(self):
+    def are_decks_legal(self):
         for player in self.players:
-            if self.game_type == 'constructed':
-                player.deck = ConstructedDeck(player.deck.cards)
-            elif self.game_type == 'limited':
-                player.deck = LimitedDeck(player.deck.cards)
-            elif self.game_type == 'commander':
-                player.deck = CommanderDeck(player.deck.cards)
-            else:
-                raise Exception('No legal game type selected')
-            
-            if not player.deck.is_legal():
-                raise Exception('A player\'s deck was not legal')
-        print('Both decks look good, let\'s begin')
+            try:
+                if self.game_type == 'constructed':
+                    player.deck = ConstructedDeck(player.deck)
+                elif self.game_type == 'limited':
+                    player.deck = LimitedDeck(player.deck)
+                elif self.game_type == 'commander':
+                    player.deck = CommanderDeck(player.deck)
+                else:
+                    print('No game type selected')
+            except Exception as e:
+                print(f'{player}\'s {e}')
+                return False
+
+        print('Both decks look good')
+        return True
 

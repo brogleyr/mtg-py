@@ -7,8 +7,8 @@ tmb = Deck(too_many_bears)
 jrb = Deck(just_right_bears)
 nec = Deck(not_enough_cards)
 
-nick = Player(just_right_bears)
-amy = Player(just_right_bears)
+nick = Player('nick', jrb)
+amy = Player('amy', jrb)
 
 game = Game([nick, amy], 'constructed')
-game.start()
+game.are_decks_legal()

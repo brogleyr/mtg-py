@@ -1,5 +1,4 @@
 
-import sys
 from src.deck import *
 from src.player import Player
 
@@ -20,19 +19,8 @@ class Game:
     def are_decks_legal(self):
         for player in self.players:
             try:
-                if self.game_type == 'constructed':
-                    player.deck = ConstructedDeck(player.deck)
-                elif self.game_type == 'limited':
-                    player.deck = LimitedDeck(player.deck)
-                elif self.game_type == 'commander':
-                    player.deck = CommanderDeck(player.deck)
-                else:
-                    print('No game type selected')
-                    return False
+                player.set_game_type(self.game_type)
             except Exception as e:
-                print(f'{player}\'s {e}')
                 return False
-
-        print('Both decks look good')
         return True
 

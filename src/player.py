@@ -1,4 +1,4 @@
-from deck import Deck
+from src.deck import Deck
 
 # 100.2
 class Player:

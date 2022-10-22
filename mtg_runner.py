@@ -1,7 +1,7 @@
-from mtg import Game
-from player import Player
-from deck import Deck
-from sample_decks import *
+from src.mtg import Game
+from src.player import Player
+from src.deck import Deck
+from assets.sample_decks import *
 
 tmb = Deck(too_many_bears)
 jrb = Deck(just_right_bears)

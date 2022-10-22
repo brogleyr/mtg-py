@@ -1,9 +1,10 @@
 
 import sys
-from deck import *
+from src.deck import *
+from src.player import Player
 
 class Game:
-    players = []
+    players: List[Player] = []
     # 100.1.
     def __init__(self, players, game_type):
         self.players = players

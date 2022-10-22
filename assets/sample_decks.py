@@ -1,13 +1,13 @@
-from card import Card
+from src.card import Card
 too_many_bears = []
 for i in range(24):
-    too_many_bears.append(Card( 'forest', 'basic land'))
+    too_many_bears.append(Card('forest', 'basic land'))
 for i in range (36):
     too_many_bears.append(Card('grizzly bears'))
 
 just_right_bears = []
 for i in range(60):
-    just_right_bears.append(Card( 'forest', 'basic land'))
+    just_right_bears.append(Card('forest', 'basic land'))
 for i in range (4):
     just_right_bears.append(Card('grizzly bears'))
 

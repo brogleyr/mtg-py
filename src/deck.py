@@ -1,7 +1,12 @@
 
+from typing import List
+from src.card import Card
+
+
 class Deck:
-    cards = []
-    def __init__(self, cards):
+    cards: List[Card] = []
+
+    def __init__(self, cards: List[Card]):
         self.cards = cards
         if hasattr(self, 'minimum_deck_size') and not self.meets_minimum_card_req():
             raise Exception('deck has too few cards')

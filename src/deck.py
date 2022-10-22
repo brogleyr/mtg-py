@@ -61,8 +61,12 @@ class LimitedDeck(Deck):
     def __init__(self, deck: Deck):
         super().__init__(deck.cards)
 
+# 100.2c - See rule 903, “Commander,” for details
 class CommanderDeck(Deck):
-    # 100.2c - See rule 903, “Commander,” for details
+    # 100.5
+    maximum_deck_size: int = 0
+
+
     def __init__(self, deck: Deck):
         super().__init__(deck.cards)
 

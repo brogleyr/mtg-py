@@ -13,9 +13,9 @@ class Deck:
     def __init__(self, cards: List[Card]) -> None:
         self.cards = cards
         if not self.meets_minimum_card_req():
-            raise Exception('deck has too few cards')
+            print('deck has too few cards')
         if not self.meets_card_name_restriction():
-            raise Exception('deck has too many of a card')
+            print('deck has too many of a card')
 
     def meets_minimum_card_req(self):
         if self.minimum_deck_size:
@@ -128,7 +128,7 @@ class CardPool():
             else:
                 self.sideboard = Sideboard(sideboard)
 
-    def set_game_type(self, game_type: str):
+    def set_game_type(self, game_type: str) -> bool:
         self.game_type = game_type
         if game_type == 'constructed':
             self.deck = ConstructedDeck(self.deck)
@@ -141,9 +141,11 @@ class CardPool():
         elif game_type == 'commander':
             self.deck = CommanderDeck(self.deck)
         else:
-            raise Exception('no game type selected')
+            print('no game type selected')
+            return False
         if not self.meets_card_name_restriction():
-            raise Exception('card pool has too many of a card')
+            print('card pool has too many of a card')
+            return False
         return True
 
     def meets_card_name_restriction(self) -> bool:

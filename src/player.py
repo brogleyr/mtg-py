@@ -16,16 +16,11 @@ class Player:
         self.name = name
         self.card_pool = CardPool(deck, sideboard)
 
-    def get_deck(self):
+    def get_deck(self) -> Deck:
         return self.card_pool.get_deck()
 
-    def set_game_type(self, game_type: str):
-        try:
-            self.card_pool.set_game_type(game_type)
-        except Exception as e:
-            print(f'{self.name}\'s {e}')
-            raise
-        return True
+    def get_cardpool(self) -> CardPool:
+        return self.card_pool
 
     def __repr__(self):
         return self.name

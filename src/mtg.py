@@ -18,9 +18,10 @@ class Game:
     
     def are_decks_legal(self):
         for player in self.players:
-            try:
-                player.set_game_type(self.game_type)
-            except Exception as e:
+            player_cards = player.get_cardpool()
+            cards_are_legal = player_cards.set_game_type(self.game_type)
+            if not cards_are_legal:
+                print('{}\'s deck was not legal'.format(player.name))
                 return False
         return True
 

@@ -144,14 +144,13 @@ class CardPool():
             print('no game type selected')
             return False
         if not self.meets_card_name_restriction():
-            print('card pool has too many of a card')
             return False
         return True
 
     def meets_card_name_restriction(self) -> bool:
         if not self.deck.same_name_restriction:
             return True
-        limited_copies = self.deck.cards
+        limited_copies = self.deck.cards.copy()
         if self.sideboard:
             limited_copies.extend(self.sideboard.cards)
         if not self.deck.basic_land_restriction:

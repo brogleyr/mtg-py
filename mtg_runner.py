@@ -13,7 +13,7 @@ m4s = Sideboard(more_than_four_sideboard)
 tbs = Sideboard(two_bears_sideboard)
 
 nick = Player('nick', tbd, tbs)
-amy = Player('amy', tbd, tbs)
+amy = Player('amy', two_bears_deck, tbs)
 
 game = Game([nick, amy], 'constructed')
 if game.are_decks_legal():
